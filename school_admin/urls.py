@@ -6,5 +6,7 @@ app_name = 'school_admin'
 
 urlpatterns = [
     path('login',views.login),
-    path('addteacher', views.add_teacher)
+    path('addteacher', views.add_teacher),
+    path('teachers/list', views.view_teacher)
+
 ]
