@@ -41,4 +41,16 @@ def add_teacher(request):
         statusCode = 505
     return JsonResponse({'statusCode' : statusCode, 'msg' : msg})
 
+@api_view(['GET'])
+def view_teacher(request):
+    try:
+        teachers_list = Teacher.objects.all()
+
+        serialized_list = TeacherSerializer(teachers_list, many = True)
+
+        return JsonResponse({'teachers' : serialized_list, 'statusCode' : 200, 'msg' : "" })
+    except:
+        return JsonResponse({'teachers': [], 'statusCode' : 505, 'msg' : "Something Went Wrong"})
+
+
     
