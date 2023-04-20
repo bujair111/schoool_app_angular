@@ -106,9 +106,9 @@ WSGI_APPLICATION = 'api_angular.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'school_db',
+        'NAME': 'db_school',
         'USER': 'postgres',
-        'PASSWORD' : 'blahcoat',
+        'PASSWORD' : 'root',
         'HOST': 'localhost',
         'PORT':'5432'
     }

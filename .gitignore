@@ -1,2 +1,6 @@
 settings.py
 media
+teacher/__pycache__
+teacher/migrations
+school_admin/__pycache__
+school_admin/migrations

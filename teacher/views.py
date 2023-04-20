@@ -11,15 +11,15 @@ def login(request):
     try:
         
         params = request.data
-        teacher_id = params['teacher_id']
+        email = params['email']
         password = params['password']
+
         try:
-            teacher_id = Teacher.objects.get(teacher_id = teacher_id , password = password)
-
-            return JsonResponse ({'statusCode': 201, 'token': 'teacher-admin'})
-
-
-        except:
+            teacher = Teacher.objects.get(email = email , password = password)
+            return JsonResponse ({'statusCode': 201, 'token': 'teacher_token','teacherId': teacher.id, 'teacherName': teacher.name})
+        except Exception as e:
+            print(e)
             return JsonResponse({'statusCode' : 404, 'msg' : 'Incorrect Username or Password'})
-    except Exception as e:
+        
+    except :
         return JsonResponse({'statusCode' : 500 , 'msg' : 'Something Went Wrong'})

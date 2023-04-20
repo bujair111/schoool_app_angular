@@ -11,3 +11,8 @@ class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Teacher
         fields ='__all__'
+
+class ClassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClassName
+        fields =('id','Class','division')        

@@ -17,5 +17,14 @@ class Teacher(models.Model):
     pic = models.ImageField(upload_to='teacher/')
     password = models.CharField(max_length=50)
 
-    class Meta():
-        db_table = 'teacher'
+    class Meta:
+        db_table = 'teachers'
+
+
+class ClassName(models.Model):
+    Class = models.CharField(max_length=10)
+    division = models.CharField(max_length=5)
+    teacher_name = models.ForeignKey(Teacher, on_delete=models.SET_NULL, null = True )
+
+    class Meta:
+        db_table = 'class'
